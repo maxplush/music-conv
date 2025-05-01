@@ -1,4 +1,4 @@
-# SoundCloud to YouTube Audio Downloader 🎵
+# Playlist Ripper 🎵
 
 This project scrapes a SoundCloud playlist and downloads matching audio tracks from YouTube. The output is saved as `.mp3` files.
 

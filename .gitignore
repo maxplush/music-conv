@@ -4,7 +4,6 @@ __pycache__/
 *.DS_Store
 .env
 .venv/
-.downloads/*
 downloads/*.webm
 downloads/*.mp3
 *.json

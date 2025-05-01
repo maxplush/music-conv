@@ -98,17 +98,24 @@ def extract_tracks_from_playlist(url):
 
     return track_list
 
-# ➡️ Test run on your playlist
-playlist_url = "https://soundcloud.com/plushseconds/sets/cs_35"
-tracks = extract_tracks_from_playlist(playlist_url)
+# # ➡️ Test run on your playlist
+# playlist_url = "https://soundcloud.com/plushseconds/sets/cs_35"
+# tracks = extract_tracks_from_playlist(playlist_url)
 
-# print("\n🎵 Extracted Tracks:")
-# for i, t in enumerate(tracks, 1):
-#     print(f"{i:02d}. {t['artist']} - {t['title']}")
-# import json
 
-# Save extracted tracks to a file
-with open("tracks.json", "w") as f:
-    json.dump(tracks, f, indent=2)
+# # Save extracted tracks to a file
+# with open("tracks.json", "w") as f:
+#     json.dump(tracks, f, indent=2)
 
-print(f"\n✅ Extracted and saved {len(tracks)} tracks to tracks.json")
+# print(f"\n✅ Extracted and saved {len(tracks)} tracks to tracks.json")
+
+def main():
+    playlist_url = "https://soundcloud.com/plushseconds/sets/cs_35"
+    tracks = extract_tracks_from_playlist(playlist_url)
+    with open("tracks.json", "w") as f:
+        json.dump(tracks, f, indent=2)
+    print(f"\n✅ Extracted and saved {len(tracks)} tracks to tracks.json")
+
+if __name__ == "__main__":
+    main()
+

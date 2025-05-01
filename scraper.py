@@ -98,17 +98,6 @@ def extract_tracks_from_playlist(url):
 
     return track_list
 
-# # ➡️ Test run on your playlist
-# playlist_url = "https://soundcloud.com/plushseconds/sets/cs_35"
-# tracks = extract_tracks_from_playlist(playlist_url)
-
-
-# # Save extracted tracks to a file
-# with open("tracks.json", "w") as f:
-#     json.dump(tracks, f, indent=2)
-
-# print(f"\n✅ Extracted and saved {len(tracks)} tracks to tracks.json")
-
 def main():
     playlist_url = "https://soundcloud.com/plushseconds/sets/cs_35"
     tracks = extract_tracks_from_playlist(playlist_url)

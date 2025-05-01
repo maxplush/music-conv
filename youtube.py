@@ -4,6 +4,8 @@ import time
 import json
 from pytubefix import YouTube
 from pytubefix.cli import on_progress
+import os
+import ffmpeg  # Import ffmpeg-python to handle conversions
 
 # ➡️ Load previously scraped tracks
 with open("tracks.json", "r") as f:
@@ -53,8 +55,28 @@ def download_audio(yt_url, track):
         yt.streams.get_by_itag(audio_itag).download(output_path="./downloads", filename=f"{track['artist']} - {track['title']}_audio.webm")
 
         print(f"✅ Downloaded audio for {track['artist']} - {track['title']}")
+
+        # Convert the downloaded .webm file to .mp3
+        convert_webm_to_mp3(f"./downloads/{track['artist']} - {track['title']}_audio.webm")
+
     except Exception as e:
         print(f"❌ Failed to download audio for {track['artist']} - {track['title']}: {e}")
+
+# ➡️ Convert .webm file to .mp3 using ffmpeg-python
+def convert_webm_to_mp3(input_file_path):
+    # Set output file path with .mp3 extension
+    output_file_path = input_file_path.replace('.webm', '.mp3')
+
+    try:
+        # Run the conversion using ffmpeg-python
+        ffmpeg.input(input_file_path).output(output_file_path, acodec='libmp3lame').run()
+        print(f"✅ Converted {input_file_path} to {output_file_path}")
+
+        # Remove the original .webm file to save space
+        os.remove(input_file_path)
+        print(f"🗑️ Deleted {input_file_path}")
+    except ffmpeg.Error as e:
+        print(f"❌ Failed to convert {input_file_path} to MP3: {e}")
 
 # ➡️ Search and collect results for first 5 tracks
 youtube_links = []

@@ -8,3 +8,4 @@ __pycache__/
 tracks_with_youtube.json
 tracks.json
 downloads/*.webm
+downloads/*.mp3

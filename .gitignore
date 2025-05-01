@@ -5,8 +5,6 @@ __pycache__/
 .env
 .venv/
 .downloads/*
-tracks_with_youtube.json
-tracks.json
 downloads/*.webm
 downloads/*.mp3
 *.json
